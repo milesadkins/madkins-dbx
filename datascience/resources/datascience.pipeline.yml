@@ -1,0 +1,14 @@
+# The main pipeline for datascience
+resources:
+  pipelines:
+    datascience_pipeline:
+      name: datascience_pipeline
+      catalog: main
+      schema: datascience_${bundle.target}
+      serverless: true
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
